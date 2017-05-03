@@ -1,4 +1,9 @@
 <div class="wrapper">
+	<div *ngIf="alertMessage" class="col s12 toastContainer">
+		<div class="toast">
+			<i class="material-icons" style="margin: 0 5px 0 -10px;">warning</i> ERROR: {{ alertMessage }}
+		</div>
+	</div>
 	<div class="loginBox card">
 		<div class="row">
 			<form class="col s12">

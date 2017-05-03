@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -10,7 +9,7 @@ export class LoginService {
 
   public authenticate(email, password) {
   	var credentials = { email: email, password: password };
-  	var url = 'https://auth-app-api.herokuapp.com/api/user/authenticate';
+  	var url = 'http://localhost:8000/api/user/authenticate';
 
     return this.http.post(url, credentials);
   }
@@ -23,11 +22,17 @@ export class LoginService {
   }
 
   public createSession(credentials) {
-    window.sessionStorage.setItem('user', credentials);
+    window.sessionStorage.setItem('user', credentials._body);
     this.router.navigate(['/dashboard']);
   }
 
   public hasAuthenticatedUser() {
   	return !(window.sessionStorage.getItem('user') === null);
+  }
+
+  public getAuthenticatedUser() {
+    let user = JSON.parse(window.sessionStorage.getItem('user'));
+    
+    return user;
   }
 }
