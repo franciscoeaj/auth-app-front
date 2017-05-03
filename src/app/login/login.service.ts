@@ -9,7 +9,7 @@ export class LoginService {
 
   public authenticate(email, password) {
   	var credentials = { email: email, password: password };
-  	var url = 'http://localhost:8000/api/user/authenticate';
+  	var url = 'https://auth-app-api.herokuapp.com/api/user/authenticate';
 
     return this.http.post(url, credentials);
   }
