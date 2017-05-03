@@ -1,0 +1,15 @@
+html, body, .wrapper {
+	height: 100%;
+}
+
+.wrapper {
+	background-color: #6a1b9a;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loginBox {
+	width: 400px;
+	padding: 8px 0 0 0;
+}
