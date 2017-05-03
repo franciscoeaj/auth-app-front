@@ -16,7 +16,7 @@ export class LoginComponent {
 
   public login(email, password) {
   	this.loginService.authenticate(email, password).subscribe(credentials => {
-  		console.log(credentials['_body']);
+  		this.loginService.createSession(credentials);
   	}, error => {
   		this.alertMessage = error._body;
       console.log(error._body);
